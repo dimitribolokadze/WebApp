@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Weather History</h1>
+{% if weathers %}
+    <table>
+        <tr>
+            <th>Location</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Description</th>
+        </tr>
+        {% for weather in weathers %}
+            <tr>
+                <td>{{ weather.location }}</td>
+                <td>{{ weather.temperature }}°C</td>
+                <td>{{ weather.humidity }}%</td>
+                <td>{{ weather.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No weather information available.</p>
+{% endif %}
+{% endblock %}
+    
